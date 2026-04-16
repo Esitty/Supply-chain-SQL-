@@ -69,7 +69,7 @@ ORDER BY Total_Revenue DESC;
 
 **Business insight:** Heat Pumps lead in revenue (€420K) despite lower sales volume than Solar Panels, confirming a premium pricing advantage. EV Chargers have the lowest revenue and profit across all categories.
 
-![Q1](Q1_product_revenue_profit_margin.png)
+![Q1](Q_product_revenue_profit_margin.png)
 
 ---
 
