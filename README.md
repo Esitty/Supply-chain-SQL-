@@ -1,6 +1,6 @@
 # Supply Chain & Demand Analytics — SQL Portfolio Project
 
-![Dashboard Preview](dashboard/Supply_Chain_Demand_Analytics_Dashboard.png)
+![Dashboard Preview](dashboard/Supply Chain & Demand.png)
 
 ## Project Overview
 
@@ -69,7 +69,7 @@ ORDER BY Total_Revenue DESC;
 
 **Business insight:** Heat Pumps lead in revenue (€420K) despite lower sales volume than Solar Panels, confirming a premium pricing advantage. EV Chargers have the lowest revenue and profit across all categories.
 
-![Q1](screenshots/Q1_product_revenue_profit_margin.png)
+![Q1](screenshots/Q1_Product_revenue.png)
 
 ---
 
@@ -88,7 +88,7 @@ ORDER BY Avg_Delivery_Days ASC;
 
 **Business insight:** Supplier A is the fastest (3.5 days avg) and delivers the highest volume (1,396 units), making it the most operationally reliable partner. Supplier C averages 8.7 days — a significant bottleneck risk.
 
-![Q2](screenshots/Q2_supplier_delivery_time_volume.png)
+![Q2](screenshots/Q2_Supplier_delivery_time_volume.png)
 
 ---
 
