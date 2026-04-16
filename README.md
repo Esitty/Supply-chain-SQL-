@@ -1,6 +1,6 @@
 # Supply Chain & Demand Analytics — SQL Portfolio Project
 
-![Dashboard Preview](Supply_Chain_&_Demand.png)
+![Dashboard Preview](Supply_Chain_Demand.png)
 
 ## Project Overview
 
