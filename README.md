@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This project analyses a supply chain dataset using **MySQL** to uncover insights across four business areas: product performance, supplier reliability, warehouse efficiency, and inventory management. The SQL analysis was built to complement and validate an **Excel dashboard** built separately — demonstrating the same business questions answered across two tools.
+This project analyses a supply chain dataset using **MySQL** to uncover insights across four business areas: product performance, supplier reliability, warehouse efficiency, and inventory management. The SQL analysis was built to complement and validate an **Excel dashboard** built separately, demonstrating the same business questions answered across two tools.
 
 **Dataset:** 38 rows × 15 columns covering January–February 2024  
 **Database:** MySQL 8.0 · Schema: `supply_chain_db` · Table: `supply_chain`  
@@ -86,7 +86,7 @@ GROUP BY Supplier
 ORDER BY Avg_Delivery_Days ASC;
 ```
 
-**Business insight:** Supplier A is the fastest (3.5 days avg) and delivers the highest volume (1,396 units), making it the most operationally reliable partner. Supplier C averages 8.7 days — a significant bottleneck risk.
+**Business insight:** Supplier A is the fastest (3.5 days avg) and delivers the highest volume (1,396 units), making it the most operationally reliable partner. Supplier C averages 8.7 days, a significant bottleneck risk.
 
 ![Q2](Q2_supplier_delivery_time_volume.png)
 
@@ -107,7 +107,7 @@ GROUP BY Product_Type
 ORDER BY Total_Inventory_Gap DESC;
 ```
 
-**Business insight:** Solar Panels have the largest inventory gap (155 units), indicating consistent overstocking. All product categories show positive gaps — a systemic inefficiency in inventory planning across the business.
+**Business insight:** Solar Panels have the largest inventory gap (155 units), indicating consistent overstocking. All product categories show positive gaps, a systemic inefficiency in inventory planning across the business.
 
 ![Q3](Q3_inventory_gap_by_product.png)
 
@@ -147,7 +147,7 @@ GROUP BY Supplier
 ORDER BY Fulfilment_Rate_Pct DESC;
 ```
 
-**Business insight:** No supplier achieves 100% fulfilment — partial delivery is a root cause of the inventory gaps seen in Query 3. This metric is critical for procurement teams evaluating vendor contracts.
+**Business insight:** No supplier achieves 100% fulfilment, partial delivery is a root cause of the inventory gaps seen in Query 3. This metric is critical for procurement teams evaluating vendor contracts.
 
 ![Q5](Q5_supplier_fulfilment_rate.png)
 
@@ -187,7 +187,7 @@ GROUP BY Supplier, Product_Type
 ORDER BY Supplier, Total_Profit DESC;
 ```
 
-**Business insight:** Cross-tabbing suppliers against products reveals which supplier is best matched to each product category. This enables smarter supplier-product pairing decisions — for example, routing Heat Pump orders to whichever supplier delivers them fastest.
+**Business insight:** Cross-tabbing suppliers against products reveals which supplier is best matched to each product category. This enables smarter supplier-product pairing decisions, for example, routing Heat Pump orders to whichever supplier delivers them fastest.
 
 ![Q7](Q7_supplier_performance_by_product.png)
 
@@ -208,7 +208,7 @@ GROUP BY Product_Type
 ORDER BY Sell_Through_Rate_Pct ASC;
 ```
 
-**Business insight:** Sell-through rate is a standard retail and supply chain KPI. A rate below 80% signals over-ordering. Results show EV Chargers have the lowest sell-through rate (71.7%), meaning they are the most over-ordered product relative to actual sales — reinforcing the case for a demand review. Solar Panels have the highest rate (74.6%) despite the largest order volume, confirming they are the strongest demand-driven product. All four categories fall below 80%, indicating business-wide over-ordering.
+**Business insight:** Sell-through rate is a standard retail and supply chain KPI. A rate below 80% signals over-ordering. Results show EV Chargers have the lowest sell-through rate (71.7%), meaning they are the most over-ordered product relative to actual sales reinforcing the case for a demand review. Solar Panels have the highest rate (74.6%) despite the largest order volume, confirming they are the strongest demand-driven product. All four categories fall below 80%, indicating business-wide over-ordering.
 
 ![Q8](Q8_demand_vs_supply_sell_through.png)
 
@@ -231,7 +231,7 @@ GROUP BY Warehouse_Location, Product_Type
 ORDER BY Product_Type, Revenue_Rank;
 ```
 
-**Business insight:** For each product category, this ranks which warehouse generates the most revenue. Berlin leads for Heat Pumps (€101,500) and is the clear top location to prioritise for restocking. Revenue was chosen as the ranking metric over profit because it reflects market demand and transaction volume — profit is included as a companion column so both dimensions are visible in one result. Where two warehouses generate identical revenue (e.g. Cologne and Hamburg both at €63,000 for Solar Panels), SQL's `RANK()` correctly assigns them the same rank and skips the next position — this is expected behaviour, not an error. Uses `RANK() OVER (PARTITION BY)` window function.
+**Business insight:** For each product category, this ranks which warehouse generates the most revenue. Berlin leads for Heat Pumps (€101,500) and is the clear top location to prioritise for restocking. Revenue was chosen as the ranking metric over profit because it reflects market demand and transaction volume, profit is included as a companion column so both dimensions are visible in one result. Where two warehouses generate identical revenue (e.g. Cologne and Hamburg both at €63,000 for Solar Panels), SQL's `RANK()` correctly assigns them the same rank and skips the next position this is expected behaviour, not an error. Uses `RANK() OVER (PARTITION BY)` window function.
 
 ![Q9](Q9_warehouse_product_revenue_rank.png)
 
@@ -253,7 +253,7 @@ SELECT
 FROM supply_chain_db.supply_chain;
 ```
 
-**Business insight:** This single query reproduces the KPI header row from the Excel dashboard exactly — €1,349,500 revenue, 2,970 units sold, 6.1 day avg delivery, 31.57% margin — validating that the SQL and Excel analyses are fully consistent.
+**Business insight:** This single query reproduces the KPI header row from the Excel dashboard exactly €1,349,500 revenue, 2,970 units sold, 6.1 day avg delivery, 31.57% margin, validating that the SQL and Excel analyses are fully consistent.
 
 ![Q10](Q10_executive_summary_kpis.png)
 
@@ -261,12 +261,12 @@ FROM supply_chain_db.supply_chain;
 
 ## Key Business Findings
 
-- **Heat Pumps** generate the highest revenue (€420K) despite lower sales volume — a premium pricing advantage worth protecting
-- **EV Chargers** underperform across all metrics — lowest revenue (€230K), lowest profit (€86K), and lowest sell-through rate (71.7%) — making them the weakest product category and a clear candidate for pricing or demand review
+- **Heat Pumps** generate the highest revenue (€420K) despite lower sales volume, a premium pricing advantage worth protecting
+- **EV Chargers** underperform across all metrics, lowest revenue (€230K), lowest profit (€86K), and lowest sell-through rate (71.7%) — making them the weakest product category and a clear candidate for pricing or demand review
 - **Solar Panels** record the highest sales volume (990 units) and best sell-through rate (74.6%), making them the strongest demand-driven product despite the largest inventory gap
 - **Supplier A** is the most reliable: fastest delivery (3.5 days avg) and highest volume (1,396 units)
 - **Supplier C** represents operational risk: slowest delivery (8.7 days) and lowest fulfilment
-- **All products show positive inventory gaps** — systemic overstocking is a business-wide inefficiency
+- **All products show positive inventory gaps** systemic overstocking is a business-wide inefficiency
 - **Overall profit margin of 31.57%** reflects healthy profitability across product lines
 
 ---
