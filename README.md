@@ -1,6 +1,6 @@
 # Supply Chain & Demand Analytics — SQL Portfolio Project
 
-![Dashboard Preview](dashboard/Supply_Chain_Demand_Analytics_Dashboard.png)
+![Dashboard Preview](Supply_Chain_&_Demand.png)
 
 ## Project Overview
 
@@ -69,7 +69,7 @@ ORDER BY Total_Revenue DESC;
 
 **Business insight:** Heat Pumps lead in revenue (€420K) despite lower sales volume than Solar Panels, confirming a premium pricing advantage. EV Chargers have the lowest revenue and profit across all categories.
 
-![Q1](screenshots/Q1_product_revenue_profit_margin.png)
+![Q1](Q1_product_revenue_profit_margin.png)
 
 ---
 
@@ -88,7 +88,7 @@ ORDER BY Avg_Delivery_Days ASC;
 
 **Business insight:** Supplier A is the fastest (3.5 days avg) and delivers the highest volume (1,396 units), making it the most operationally reliable partner. Supplier C averages 8.7 days — a significant bottleneck risk.
 
-![Q2](screenshots/Q2_supplier_delivery_time_volume.png)
+![Q2](Q2_supplier_delivery_time_volume.png)
 
 ---
 
@@ -109,7 +109,7 @@ ORDER BY Total_Inventory_Gap DESC;
 
 **Business insight:** Solar Panels have the largest inventory gap (155 units), indicating consistent overstocking. All product categories show positive gaps — a systemic inefficiency in inventory planning across the business.
 
-![Q3](screenshots/Q3_inventory_gap_by_product.png)
+![Q3](Q3_inventory_gap_by_product.png)
 
 ---
 
@@ -129,7 +129,7 @@ ORDER BY Total_Revenue DESC;
 
 **Business insight:** This extended analysis (not shown in the Excel dashboard) reveals which city locations drive the most revenue, enabling smarter decisions about where to prioritise restocking and logistics investment.
 
-![Q4](screenshots/Q4_revenue_profit_by_warehouse.png)
+![Q4](Q4_revenue_profit_by_warehouse.png)
 
 ---
 
@@ -149,7 +149,7 @@ ORDER BY Fulfilment_Rate_Pct DESC;
 
 **Business insight:** No supplier achieves 100% fulfilment — partial delivery is a root cause of the inventory gaps seen in Query 3. This metric is critical for procurement teams evaluating vendor contracts.
 
-![Q5](screenshots/Q5_supplier_fulfilment_rate.png)
+![Q5](Q5_supplier_fulfilment_rate.png)
 
 ---
 
@@ -169,7 +169,7 @@ ORDER BY Revenue_Per_Cost_Euro DESC;
 
 **Business insight:** `Revenue_Per_Cost_Euro` shows how many euros of revenue each euro of cost generates. The product with the highest ratio is the most capital-efficient. EV Chargers likely show the weakest return, reinforcing the case for a pricing review.
 
-![Q6](screenshots/Q6_cost_efficiency_by_product.png)
+![Q6](Q6_cost_efficiency_by_product.png)
 
 ---
 
@@ -189,7 +189,7 @@ ORDER BY Supplier, Total_Profit DESC;
 
 **Business insight:** Cross-tabbing suppliers against products reveals which supplier is best matched to each product category. This enables smarter supplier-product pairing decisions — for example, routing Heat Pump orders to whichever supplier delivers them fastest.
 
-![Q7](screenshots/Q7_supplier_performance_by_product.png)
+![Q7](Q7_supplier_performance_by_product.png)
 
 ---
 
@@ -210,7 +210,7 @@ ORDER BY Sell_Through_Rate_Pct ASC;
 
 **Business insight:** Sell-through rate is a standard retail and supply chain KPI. A rate below 80% signals over-ordering. Results show EV Chargers have the lowest sell-through rate (71.7%), meaning they are the most over-ordered product relative to actual sales — reinforcing the case for a demand review. Solar Panels have the highest rate (74.6%) despite the largest order volume, confirming they are the strongest demand-driven product. All four categories fall below 80%, indicating business-wide over-ordering.
 
-![Q8](screenshots/Q8_demand_vs_supply_sell_through.png)
+![Q8](Q8_demand_vs_supply_sell_through.png)
 
 ---
 
@@ -233,7 +233,7 @@ ORDER BY Product_Type, Revenue_Rank;
 
 **Business insight:** For each product category, this ranks which warehouse generates the most revenue. Berlin leads for Heat Pumps (€101,500) and is the clear top location to prioritise for restocking. Revenue was chosen as the ranking metric over profit because it reflects market demand and transaction volume — profit is included as a companion column so both dimensions are visible in one result. Where two warehouses generate identical revenue (e.g. Cologne and Hamburg both at €63,000 for Solar Panels), SQL's `RANK()` correctly assigns them the same rank and skips the next position — this is expected behaviour, not an error. Uses `RANK() OVER (PARTITION BY)` window function.
 
-![Q9](screenshots/Q9_warehouse_product_revenue_rank.png)
+![Q9](Q9_warehouse_product_revenue_rank.png)
 
 ---
 
@@ -255,7 +255,7 @@ FROM supply_chain_db.supply_chain;
 
 **Business insight:** This single query reproduces the KPI header row from the Excel dashboard exactly — €1,349,500 revenue, 2,970 units sold, 6.1 day avg delivery, 31.57% margin — validating that the SQL and Excel analyses are fully consistent.
 
-![Q10](screenshots/Q10_executive_summary_kpis.png)
+![Q10](Q10_executive_summary_kpis.png)
 
 ---
 
