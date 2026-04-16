@@ -1,6 +1,6 @@
 # Supply Chain & Demand Analytics — SQL Portfolio Project
 
-![Dashboard Preview](dashboard/Supply_Chain_&_Demand.png)
+![Dashboard Preview](Supply_Chain_&_Demand.png)
 
 ## Project Overview
 
@@ -69,7 +69,7 @@ ORDER BY Total_Revenue DESC;
 
 **Business insight:** Heat Pumps lead in revenue (€420K) despite lower sales volume than Solar Panels, confirming a premium pricing advantage. EV Chargers have the lowest revenue and profit across all categories.
 
-![Q1](screenshots/Q1-Product_revenue.png)
+![Q1](Q1_Product_revenue.png)
 
 ---
 
