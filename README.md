@@ -1,6 +1,4 @@
-# Supply Chain & Demand Analytics — SQL Portfolio Project
-
-![Dashboard Preview](Supply_Chain_Demand.png)
+# Supply Chain & Demand Analysis — SQL Portfolio Project
 
 ## Project Overview
 
@@ -282,6 +280,8 @@ FROM supply_chain_db.supply_chain;
 - Aliasing with `AS` for readable output
 
 ---
+
+![Dashboard Preview](Supply_Chain_Demand.png)
 
 ## Repository Structure
 
